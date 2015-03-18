@@ -11,11 +11,14 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'therubyracer', platforms: :ruby
 
+gem 'slim-rails'
 gem 'jbuilder', '~> 2.0'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'mongoid-rspec'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
-
