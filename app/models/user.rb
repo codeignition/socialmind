@@ -1,8 +1,8 @@
 class User
   include Mongoid::Document
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :database_authenticatable, :registerable, :recoverable, :rememberable
-  devise :omniauthable, :trackable, :validatable, :omniauth_providers => [:twitter]
+  # :confirmable, :lockable, :timeoutable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  devise :omniauthable, :trackable, :omniauth_providers => [:twitter]
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -33,15 +33,14 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  field :uid
-  field :provider
+  field :twitter_id
+  field :name
+  field :image
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name   # assuming the user model has a name
-      user.image = auth.info.image # assuming the user model has an image
+  def self.from_twitter(auth)
+    where(twitter_id: auth.uid).first_or_create do |user|
+      user.name = auth.info.name
+      user.image = auth.info.image
     end
   end
 end
