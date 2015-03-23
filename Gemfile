@@ -5,6 +5,8 @@ gem 'puma'
 gem "mongoid", "~> 4.0.0"
 gem 'devise'
 
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -23,4 +25,5 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'pry-rails'
 end
