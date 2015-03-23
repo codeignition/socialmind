@@ -5,7 +5,6 @@ gem 'puma'
 gem "mongoid", "~> 4.0.0"
 gem 'devise'
 
-gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -16,6 +15,7 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'slim-rails'
 gem 'jbuilder', '~> 2.0'
+gem 'bower-rails'
 
 group :development, :test do
   gem 'byebug'
