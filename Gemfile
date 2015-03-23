@@ -3,7 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'puma'
 gem "mongoid", "~> 4.0.0"
+
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 gem 'autoprefixer-rails'
 gem 'sass-rails', '~> 5.0'
