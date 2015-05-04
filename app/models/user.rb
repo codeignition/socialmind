@@ -37,6 +37,9 @@ class User
   field :name
   field :image
 
+  has_many :organizations
+  has_many :social_accounts, as: :owner
+
   def self.from_twitter(auth)
     where(twitter_id: auth.uid).first_or_create do |user|
       user.name = auth.info.name
