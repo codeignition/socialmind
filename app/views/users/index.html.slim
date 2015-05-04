@@ -1,0 +1,13 @@
+.container-fluid
+  .h1 Social Accounts
+  table.table.table-hover.table-condensed
+    tbody
+    - if @texts.blank?
+      | No Account Added Yet
+    - @social_accounts.each do |social_account|
+     tr
+       td = link_to "Show", social_account
+
+  .row data-toggle="collapse" data-target="#new-topic"
+  = button_to 'Add new account', new_social_account_path, :class => "tertiary-button", :method => :get
+  br
