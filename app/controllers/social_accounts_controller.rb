@@ -1,10 +1,6 @@
 class SocialAccountsController < ApplicationController
   before_action :set_social_account, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @social_accounts = SocialAccount.all
-  end
-
   def show
   end
 

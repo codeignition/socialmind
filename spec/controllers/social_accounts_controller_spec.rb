@@ -11,14 +11,6 @@ RSpec.describe SocialAccountsController, type: :controller do
 
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all social_accounts as @social_accounts" do
-      social_account = SocialAccount.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:social_accounts)).to eq([social_account])
-    end
-  end
-
   describe "GET #show" do
     it "assigns the requested social_account as @social_account" do
       social_account = SocialAccount.create! valid_attributes

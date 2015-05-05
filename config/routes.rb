@@ -4,17 +4,14 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       resources :organizations
-      resources :social_accounts, only: [:index,:show,:destroy]
+      resources :social_accounts, only: [:show,:destroy]
       get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+      root to: 'users#index', as: :user_root
     end
 
     unauthenticated :user do
       get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
     end
-  end
-
-  authenticated :user do
-    root to: 'users#index', as: :user_root
   end
 
   unauthenticated do
