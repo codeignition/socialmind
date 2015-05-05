@@ -1,0 +1,12 @@
+.container-fluid
+  .h1 = @twitter_account.handle
+  .col-md-8
+    table.table.table-hover.table-condensed
+      tbody
+      - @timeline.each do |tweet|
+       tr
+         td = tweet.text
+  .col-md-4
+    = form_tag controller: "twitter_accounts", action: "tweet", method: "post"
+      = text_area_tag :text
+      = submit_tag "Tweet"

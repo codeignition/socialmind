@@ -6,7 +6,7 @@
       | No Account Added Yet
     - @social_accounts.each do |social_account|
      tr
-       td = link_to "Show", social_account_path(social_account)
+       td = link_to "Show", social_account
 
   .row
     = button_to "Add Twitter Account", user_omniauth_authorize_path(:twitter)

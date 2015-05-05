@@ -11,14 +11,6 @@ RSpec.describe SocialAccountsController, type: :controller do
 
   let(:valid_session) { {} }
 
-  describe "GET #show" do
-    it "assigns the requested social_account as @social_account" do
-      social_account = SocialAccount.create! valid_attributes
-      get :show, {:id => social_account.to_param}, valid_session
-      expect(assigns(:social_account)).to eq(social_account)
-    end
-  end
-
   describe "DELETE #destroy" do
     it "destroys the requested social_account" do
       social_account = SocialAccount.create! valid_attributes
