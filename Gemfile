@@ -7,6 +7,7 @@ gem "mongoid"
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'cancancan'
 
 gem 'twitter'
 
