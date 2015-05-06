@@ -39,6 +39,7 @@ class User
 
   has_many :organizations
   has_many :social_accounts, as: :owner
+  has_and_belongs_to_many :shared_accounts, class_name: 'SocialAccount', inverse_of: :collaborators
 
   def self.from_twitter(auth)
     where(twitter_id: auth.uid).first_or_create do |user|

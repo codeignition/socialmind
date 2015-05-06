@@ -7,7 +7,15 @@
     - @social_accounts.each do |social_account|
      tr
        td = link_to "Show", social_account
-
   .row
     = button_to "Add Twitter Account", user_omniauth_authorize_path(:twitter)
   br
+  .h3 Shared Accounts
+  table.table.table-hover.table-condensed
+    tbody
+    - if @texts.blank?
+      | No Account Shared Yet
+    - @shared_accounts.each do |shared_account|
+     tr
+       td = link_to "Show", social_account
+
