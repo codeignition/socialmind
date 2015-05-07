@@ -1,0 +1,15 @@
+nav.navbar.navbar-inverse
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "Socialmind", root_path, class: 'navbar-brand'
+    #navbar.collapse.navbar-collapse
+      .pull-right
+        ul.nav.navbar-nav
+          - if user_signed_in?
+            li = link_to('Add Organization', new_organization_path)
+            li = link_to('Logout', destroy_user_session_path)

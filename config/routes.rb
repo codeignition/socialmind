@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      resources :organizations
       resources :social_accounts, only: [:destroy]
       resources :twitter_accounts, only: [:show] do
         post :tweet, on: :member
