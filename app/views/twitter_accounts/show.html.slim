@@ -7,6 +7,9 @@
        tr
          td = tweet.text
   .col-md-4
-    = form_tag controller: "twitter_accounts", action: "tweet", method: "post"
-      = text_area_tag :text
-      = submit_tag "Tweet"
+    .row
+      = form_tag controller: "twitter_accounts", action: "tweet", method: "post"
+        = text_area_tag :text
+        = submit_tag "Tweet"
+    .row
+      = link_to "Collaborators", collaborators_twitter_account_path(@twitter_account)

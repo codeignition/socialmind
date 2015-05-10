@@ -10,6 +10,9 @@ class TwitterAccountsController < ApplicationController
     redirect_to @twitter_account
   end
 
+  def collaborators
+  end
+
   private
   def set_twitter_account
     @twitter_account = TwitterAccount.find(params[:id])

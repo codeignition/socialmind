@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     authenticated :user do
       resources :twitter_accounts, only: [:show] do
         post :tweet, on: :member
+        get :collaborators, on: :member
       end
       get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
       root to: 'users#index', as: :user_root
