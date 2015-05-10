@@ -3,9 +3,9 @@
   .col-md-8
     table.table.table-hover.table-condensed
       tbody
-      - @twitter_account.owners.each do |owner|
-       tr
-         td = owner.name
-      - @twitter_account.collaborators.each do |collaborator|
-       tr
-         td = collaborator.name
+        - @twitter_account.owners.each do |owner|
+         tr
+           td = owner.name
+        - @twitter_account.collaborators.each do |collaborator|
+         tr
+           td = collaborator.name
