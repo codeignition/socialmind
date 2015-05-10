@@ -13,6 +13,10 @@ class TwitterAccountsController < ApplicationController
   def collaborators
   end
 
+  def invite
+    params[:email]
+  end
+
   private
   def set_twitter_account
     @twitter_account = TwitterAccount.find(params[:id])

@@ -9,3 +9,10 @@
         - @twitter_account.collaborators.each do |collaborator|
          tr
            td = collaborator.name
+  .col-md-4
+    .row
+      = form_tag({controller: "twitter_accounts", action: "invite", method: "post"}, class: 'form-inline')
+        .form-group
+          = email_field :email, class: "form-control", placeholder: 'Email', required: true
+        .form-group
+          = submit_tag "Invite"

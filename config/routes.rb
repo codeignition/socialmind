@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  resources :invitations
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_scope :user do
     authenticated :user do
       resources :twitter_accounts, only: [:show] do
         post :tweet, on: :member
+        post :invite, on: :member
         get :collaborators, on: :member
       end
       get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
