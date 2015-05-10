@@ -4,4 +4,15 @@ class Invitation
   belongs_to :user
   belongs_to :social_account
   field :token
+  field :email
+  validates_presence_of :email
+  before_create :generate_token, unless: :token?
+
+  private
+  def generate_token
+    self.token = loop do
+      random_token = SecureRandom.urlsafe_base64(nil, false)
+      break random_token unless Invitation.where(token: random_token).exists?
+    end
+  end
 end

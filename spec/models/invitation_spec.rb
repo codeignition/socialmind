@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Invitation, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should set token for newly created token" do
+    invitation = Invitation.create email: 'a@a.a'
+    expect(invitation.token).to_not be_nil
+  end
 end
