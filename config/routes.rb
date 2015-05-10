@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      resources :invitations
+      resources :invitations, only: [:create,:destroy]
       resources :twitter_accounts, only: [:show] do
         post :tweet, on: :member
         post :invite, on: :member

@@ -6,13 +6,20 @@
         - @twitter_account.owners.each do |owner|
          tr
            td = owner.name
+           td
         - @twitter_account.collaborators.each do |collaborator|
          tr
            td = collaborator.name
+           td
+        - @open_invitations.each do |invitation|
+         tr
+           td = invitation.email
+           td pending
   .col-md-4
     .row
-      = form_tag({controller: "twitter_accounts", action: "invite", method: "post"}, class: 'form-inline')
+      = form_for @invitation, html: { class: 'form-inline' } do |f|
         .form-group
-          = email_field :email, class: "form-control", placeholder: 'Email', required: true
+          = f.email_field :email, class: "form-control", placeholder: 'Email', required: true
+        = f.hidden_field :social_account_id
         .form-group
-          = submit_tag "Invite"
+          = f.submit "Invite"

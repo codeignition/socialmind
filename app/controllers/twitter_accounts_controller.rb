@@ -11,6 +11,8 @@ class TwitterAccountsController < ApplicationController
   end
 
   def collaborators
+    @invitation = Invitation.new social_account: @twitter_account
+    @open_invitations = @twitter_account.invitations.where(user_id: nil)
   end
 
   private
