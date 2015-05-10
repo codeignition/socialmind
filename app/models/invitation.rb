@@ -7,6 +7,9 @@ class Invitation
   field :email
   validates_presence_of :email
   before_create :generate_token, unless: :token?
+  after_create do
+    InvitationMailer.invite(self).deliver_now
+  end
 
   private
   def generate_token
