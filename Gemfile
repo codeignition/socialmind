@@ -32,4 +32,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'letter_opener'
 end
