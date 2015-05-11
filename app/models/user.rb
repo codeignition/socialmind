@@ -37,8 +37,8 @@ class User
   field :name
   field :image
 
-  has_and_belongs_to_many :social_accounts, class_name: 'SocialAccount', inverse_of: :owners
-  has_and_belongs_to_many :shared_accounts, class_name: 'SocialAccount', inverse_of: :collaborators
+  has_and_belongs_to_many :social_accounts, class_name: 'SocialAccount', inverse_of: :owners, autosave: true
+  has_and_belongs_to_many :shared_accounts, class_name: 'SocialAccount', inverse_of: :collaborators, autosave: true
   has_many :invitations
 
   def self.from_twitter(auth)
@@ -48,5 +48,13 @@ class User
     end
     TwitterAccount.from_oauth auth, user
     return user
+  end
+
+  def accept_invitation token
+    if token && invitation = Invitation.where(:token => token).first
+      invitation.update(user: self)
+      self.shared_accounts.push invitation.social_account
+      self.save
+    end
   end
 end

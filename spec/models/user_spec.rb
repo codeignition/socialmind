@@ -26,4 +26,22 @@ RSpec.describe User, type: :model do
       expect(TwitterAccount.count).to eq 1
     end
   end
+
+  describe "accept_invitation" do
+    it "should do nothing for invalid token" do
+      user = create :user
+      expect(user.accept_invitation('sdadasd')).to be_nil
+      expect(user.accept_invitation(nil)).to be_nil
+    end
+
+    it "should add user as collaborators" do
+      invitation = create :invitation
+      user = create :user
+      user.accept_invitation invitation.token
+      invitation.reload
+      expect(user.shared_accounts).to include invitation.social_account
+      expect(invitation.social_account.collaborators).to include user
+      expect(invitation.user).to eq user
+    end
+  end
 end
