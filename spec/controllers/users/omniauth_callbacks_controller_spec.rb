@@ -18,6 +18,12 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       expect(response).to redirect_to user_root_url
     end
 
+    it "should accept invitation for social account when no user logged in" do
+      invitation = create :invitation
+      get :twitter, token: invitation.token
+      expect(User.last.shared_accounts).to include invitation.reload.social_account
+    end
+
     it "should add a social acccount when user logged in" do
       sign_in create(:user)
       get :twitter
