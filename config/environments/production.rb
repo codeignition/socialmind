@@ -63,7 +63,16 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'socialmind.in' }
+  config.action_mailer.delivery_method     = :smtp
+
+  config.action_mailer.smtp_settings = {
+      address:        ENV['AWS_SES_ADDRESS'],
+      authentication: :login,
+      password:       ENV['AWS_SES_PASSWORD'],
+      port:           ENV['AWS_SES_PORT'],
+      user_name:      ENV['AWS_SES_USER_NAME']
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
