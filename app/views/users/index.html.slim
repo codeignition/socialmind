@@ -7,6 +7,6 @@
          td = link_to social_account.name, social_account
       - @shared_accounts.each do |shared_account|
        tr
-         td = link_to social_account.name, shared_account
+         td = link_to shared_account.name, shared_account
   .row
     = button_to "Add Twitter Account", user_omniauth_authorize_path(:twitter)
