@@ -1,11 +1,21 @@
 .container-fluid
-  .h1 = @twitter_account.nickname
-  .col-md-8
-    table.table.table-hover.table-condensed
-      tbody
-      - @timeline.each do |tweet|
-       tr
-         td = tweet.text
+  .col-md-10.col-md-offset-1
+    .h4 Recent Tweets
+  .col-md-10.col-md-offset-1
+    - @timeline.each do |tweet|
+      .tweet
+        = tweet.text
+        br
+        .col-md-1
+          i.fa.fa-reply
+        .col-md-1
+          i.fa.fa-retweet
+          = tweet.retweet_count
+        .col-md-1
+          i.fa.fa-star-o
+          = tweet.favorite_count
+        .col-md-1
+          i.fa.fa-ellipsis-h
   .col-md-4
     .row
       = form_tag controller: "twitter_accounts", action: "tweet", method: "post"
