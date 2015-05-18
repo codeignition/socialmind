@@ -2,6 +2,7 @@ class TwitterAccountsController < ApplicationController
   before_action :set_twitter_account
 
   def show
+    session[:current_account] = @twitter_account
     @timeline = @twitter_account.client.user_timeline
   end
 

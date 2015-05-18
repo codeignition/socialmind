@@ -1,16 +1,27 @@
-nav.navbar.navbar-inverse
-  .container
-    .navbar-header
-      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to "Socialmind", root_path, class: 'navbar-brand'
-    #navbar.collapse.navbar-collapse
-      .pull-right
-        ul.nav.navbar-nav
-          - if user_signed_in?
+- if user_signed_in?
+  nav.navbar.navbar-inverse
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      #navbar.collapse.navbar-collapse
+        ul.nav.navbar-nav.nav-pills
+          li.dropdown
+            a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Syllabus"
+              = image_tag session['current_account']['image'], class: 'nav-image'
+              = ' @' + session['current_account']['nickname']
+              span.caret
+            ul.dropdown-menu.dropdown-menu-right
+              - (current_user.social_accounts + current_user.shared_accounts).sort_by(&:nickname).each do |account|
+                li
+                  = link_to account do
+                    = image_tag account.image, class: 'nav-image'
+                    = ' @' + account.nickname
+        .pull-right
+          ul.nav.navbar-nav
             li
               a href="#"
                 i.fa.fa-users
