@@ -4,22 +4,26 @@
   .col-md-10.col-md-offset-1
     - @timeline.each do |tweet|
       .tweet
-        = tweet.text
-        br
         .col-md-1
-          i.fa.fa-reply
-        .col-md-1
-          i.fa.fa-retweet
-          = tweet.retweet_count
-        .col-md-1
-          i.fa.fa-star-o
-          = tweet.favorite_count
-        .col-md-1
-          i.fa.fa-ellipsis-h
+          = image_tag tweet.user.profile_image_url, class: 'image-responsive'
+        .col-md-9
+          = tweet.full_text
+          br
+          .col-md-2
+            i.fa.fa-reply
+          .col-md-2
+            i.fa.fa-retweet
+            = tweet.retweet_count
+          .col-md-2
+            i.fa.fa-star-o
+            = tweet.favorite_count
+          .col-md-2
+            i.fa.fa-ellipsis-h
+            /url
+        .col-md-2
+          = tweet.created_at.strftime('%b %e, %l:%M %p')
   .col-md-4
     .row
       = form_tag controller: "twitter_accounts", action: "tweet", method: "post"
         = text_area_tag :text
         = submit_tag "Tweet"
-    .row
-      = link_to "Collaborators", collaborators_twitter_account_path(@twitter_account)
