@@ -20,6 +20,9 @@
                   = link_to account do
                     = image_tag account.image, class: 'nav-image'
                     = ' @' + account.nickname
+              li.divider
+              li
+                 = link_to "Add New Twitter Account", user_omniauth_authorize_path(:twitter)
         .pull-right
           ul.nav.navbar-nav
             li
