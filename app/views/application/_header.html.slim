@@ -11,4 +11,12 @@ nav.navbar.navbar-inverse
       .pull-right
         ul.nav.navbar-nav
           - if user_signed_in?
-            li = link_to('Logout', destroy_user_session_path)
+            li
+              a href="#"
+                i.fa.fa-users
+            li
+              a href="#"
+                i.fa.fa-gear
+            li
+              = link_to destroy_user_session_path do
+                i.fa.fa-power-off
