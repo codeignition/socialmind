@@ -9,7 +9,7 @@
           span.icon-bar
       #navbar.collapse.navbar-collapse
         ul.nav.navbar-nav.nav-pills
-          li.dropdown
+          li.navbar-left.dropdown
             a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Syllabus"
               = image_tag session['current_account']['image'], class: 'nav-image'
               = ' @' + session['current_account']['nickname']
@@ -23,14 +23,16 @@
               li.divider
               li
                  = link_to "Add New Twitter Account", user_omniauth_authorize_path(:twitter)
-        .pull-right
-          ul.nav.navbar-nav
-            li
-              a href="#"
-                i.fa.fa-users
-            li
-              a href="#"
-                i.fa.fa-gear
-            li
-              = link_to destroy_user_session_path do
-                i.fa.fa-power-off
+          li
+            a href="#"
+              i.fa.fa-pencil-square-o
+              |   compose
+          li.navbar-right
+            = link_to destroy_user_session_path do
+              i.fa.fa-power-off
+          li.navbar-right
+            a href="#"
+              i.fa.fa-gear
+          li.navbar-right
+            a href="#"
+              i.fa.fa-users
