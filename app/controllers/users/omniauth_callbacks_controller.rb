@@ -6,8 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "Twitter") if is_navigational_format?
     else
-      TwitterAccount.from_oauth request.env["omniauth.auth"], current_user
-      redirect_to user_root_url
+      redirect_to TwitterAccount.from_oauth(request.env["omniauth.auth"], current_user)
     end
   end
 end

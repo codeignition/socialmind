@@ -11,8 +11,8 @@
         ul.nav.navbar-nav.nav-pills
           li.navbar-left.dropdown
             a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Syllabus"
-              = image_tag session['current_account']['image'], class: 'nav-image'
-              = ' @' + session['current_account']['nickname']
+              = image_tag current_account.image, class: 'nav-image'
+              = ' @' + current_account.nickname
               span.caret
             ul.dropdown-menu.dropdown-menu-right
               - (current_user.social_accounts + current_user.shared_accounts).sort_by(&:nickname).each do |account|
