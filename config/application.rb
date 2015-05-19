@@ -36,6 +36,7 @@ module Socialmind
 
     # Precompile Bootstrap fonts
     config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
+    config.assets.precompile << %r(fontawesome/fonts/[\w-]+\.(?:eot|svg|ttf|woff2|otf|woff?)$)
 
     # Minimum Sass number precision required by bootstrap-sass
     ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
