@@ -22,8 +22,3 @@
             /url
         .col-md-2
           = tweet.created_at.strftime('%b %e, %l:%M %p')
-  .col-md-4
-    .row
-      = form_tag controller: "twitter_accounts", action: "tweet", method: "post"
-        = text_area_tag :text
-        = submit_tag "Tweet"
