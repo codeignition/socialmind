@@ -22,11 +22,13 @@ html lang="en"
       - if flash[:alert]
         .alert.alert-error.alert-dismissible
           = flash[:alert]
-    .container-fluid
-      .row
-        = image_tag 'logo.svg', class: 'image-responsive'
-      .row
+    .container-fluid.col-md-3.text-center
+      .col-md-12
+        = image_tag 'logo.svg', class: 'image-responsive center-block'
+      .col-md-12.promo-text
         | A simple social media collaboration tool.
-      .row
-        = link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter, {token: @token})
+      .col-md-12
+        = link_to user_omniauth_authorize_path(:twitter, {token: @token}), class: 'btn btn-primary text-center' do
+          i.fa.fa-twitter
+          |  Sign in with Twitter
 

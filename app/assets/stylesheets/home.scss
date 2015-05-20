@@ -10,3 +10,16 @@
   -webkit-background-size: 100% 100%;
   background-size:cover;
 }
+
+.bubble {
+  margin: 2px auto;
+  background-image: image-url("big-bubble.svg");
+  background-size:100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size:cover;
+}
+
+.promo-text {
+  font-size: 16pt;
+}
