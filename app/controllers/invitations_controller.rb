@@ -29,6 +29,6 @@ class InvitationsController < ApplicationController
     end
 
     def invitation_params
-      params[:invitation].permit(:email,:social_account_id)
+      params[:invitation].permit(:email,:social_account_id).merge(host: current_user)
     end
 end

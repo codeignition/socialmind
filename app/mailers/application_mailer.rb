@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "shobhit@codeignition.co"
+  default from: "socialmind@codeignition.co"
   layout 'mailer'
 end

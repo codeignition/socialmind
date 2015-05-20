@@ -12,16 +12,6 @@ html lang="en"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
   body.homepage
-    #top-container.container-fluid
-      - if flash[:notice]
-        .alert.alert-success.alert-dismissible
-          = flash[:notice]
-        button.close data-dismiss="alert" type="button"
-          span aria-hidden="true" &times;
-          span.sr-only Close
-      - if flash[:alert]
-        .alert.alert-error.alert-dismissible
-          = flash[:alert]
     .container-fluid.col-md-3.text-center
       .col-md-12
         = image_tag 'logo.svg', class: 'image-responsive center-block'

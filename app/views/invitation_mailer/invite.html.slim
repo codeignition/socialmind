@@ -1,4 +1,10 @@
 p
-  Click
-  = link_to 'here', user_root_url(token: @invitation.token)
-  to join
+  | You're invited!
+  br/
+  | #{@invitation.social_account.nickname} has started using Socialmind. #{@invitation.host.name}, has invited you to join.
+  br/
+  = link_to 'Click here', user_root_url(token: @invitation.token)
+  |  to join and start tweeting !
+  br/
+  br/
+  | Socialmind is a simple socialmedia collabration tool.
