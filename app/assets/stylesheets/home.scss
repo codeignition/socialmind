@@ -1,3 +1,12 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.homepage {
+  height: 100%;
+  background-image: image-url("big-bubble.svg"), image-url("tweets.svg"), image-url("small-bubbles.svg"), image-url("network.svg"), image-url("map.svg");
+  background-size:100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size:cover;
+}

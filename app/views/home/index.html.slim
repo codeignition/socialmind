@@ -1,1 +1,32 @@
-= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter, {token: @token})
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    meta content="" name="description" /
+    meta content="" name="author" /
+    title Socialmind
+    = csrf_meta_tags
+    = favicon_link_tag 'socialmind.ico'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  body.homepage
+    #top-container.container-fluid
+      - if flash[:notice]
+        .alert.alert-success.alert-dismissible
+          = flash[:notice]
+        button.close data-dismiss="alert" type="button"
+          span aria-hidden="true" &times;
+          span.sr-only Close
+      - if flash[:alert]
+        .alert.alert-error.alert-dismissible
+          = flash[:alert]
+    .container-fluid
+      .row
+        = image_tag 'logo.svg', class: 'image-responsive'
+      .row
+        | A simple social media collaboration tool.
+      .row
+        = link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter, {token: @token})
+
