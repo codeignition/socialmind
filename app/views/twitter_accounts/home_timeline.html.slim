@@ -1,0 +1,24 @@
+.container-fluid
+  .col-md-10.col-md-offset-1
+    .h4 Twitter Feed
+  .col-md-10.col-md-offset-1
+    - @timeline.each do |tweet|
+      .tweet
+        .col-md-1
+          = image_tag tweet.user.profile_image_url, class: 'image-responsive'
+        .col-md-9
+          = tweet.full_text
+          br
+          .col-md-2
+            i.fa.fa-reply
+          .col-md-2
+            i.fa.fa-retweet
+            = tweet.retweet_count
+          .col-md-2
+            i.fa.fa-star-o
+            = tweet.favorite_count
+          .col-md-2
+            i.fa.fa-ellipsis-h
+            /url
+        .col-md-2
+          = tweet.created_at.strftime('%b %e, %l:%M %p')

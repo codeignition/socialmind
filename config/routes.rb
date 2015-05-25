@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         post :tweet, on: :member
         post :invite, on: :member
         get :collaborators, on: :member
+        get :home_timeline, on: :member
       end
       get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
       root to: 'users#index', as: :user_root

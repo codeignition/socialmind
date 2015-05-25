@@ -6,6 +6,11 @@ class TwitterAccountsController < ApplicationController
     @timeline = @twitter_account.client.user_timeline
   end
 
+  def home_timeline
+    session[:current_account] = @twitter_account.to_param
+    @timeline = @twitter_account.client.home_timeline
+  end
+
   def tweet
     @twitter_account.client.update(params[:text])
     redirect_to @twitter_account
